@@ -22,6 +22,10 @@
     "url": "https://github.com/nestjs-devkit/dataloader/issues"
   },
   "homepage": "https://github.com/nestjs-devkit/dataloader#readme",
+  "peerDependencies": {
+    "dataloader": "*",
+    "@nestjs/common": "*"
+  },
   "devDependencies": {
     "@nestjs/common": "^8.2.4",
     "@types/jest": "^27.0.3",
