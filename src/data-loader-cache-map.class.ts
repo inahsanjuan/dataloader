@@ -2,7 +2,6 @@ import { CacheMap } from "dataloader";
 
 import { DataLoader } from "./data-loader.class";
 import { DataLoaderContext } from "./data-loader-context.class";
-import { DataLoaderContextMiddleware } from "./data-loader-context.middleware";
 
 /**
  * Provide a clean cache state for each request.
@@ -30,7 +29,7 @@ export class DataLoaderCacheMap<Key, Value, ValuePromise extends Promise<Value>>
     const map = DataLoaderContext.current?.cacheMapContexts;
     if (!map)
       throw new Error(
-        `${DataLoaderContextMiddleware.name} must be applied for this route`,
+        `${DataLoaderContext.name} must be applied for this route`,
       );
 
     let context = map.get(this.loader) as Map<Key, ValuePromise> | undefined;

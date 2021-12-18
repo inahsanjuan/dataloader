@@ -1,7 +1,5 @@
 import { DynamicModule, Module } from "@nestjs/common";
-import { APP_INTERCEPTOR } from "@nestjs/core";
 
-import { DataLoaderContextInterceptor } from "./data-loader-context.interceptor";
 import { DataLoaderMiddlewareModule } from "./data-loader-middleware.module";
 
 /**
@@ -11,28 +9,17 @@ import { DataLoaderMiddlewareModule } from "./data-loader-middleware.module";
 @Module({})
 export class DataLoaderModule {
   static forRoot(options: DataLoaderModuleOptions = {}): DynamicModule {
-    const definition: DynamicModule = {
+    return {
       module: DataLoaderModule,
-      imports: [],
-      providers: [],
+      imports: options.middleware ?? true ? [DataLoaderMiddlewareModule] : [],
     };
-
-    options.context = options.context ?? "interceptor";
-    if (options.context == "middleware")
-      definition.imports!.push(DataLoaderMiddlewareModule);
-    else if (options.context == "interceptor")
-      definition.providers!.push({
-        provide: APP_INTERCEPTOR,
-        useClass: DataLoaderContextInterceptor,
-      });
-
-    return definition;
   }
 }
 
 interface DataLoaderModuleOptions {
   /**
-   * Specify how the context will be applied.
+   * Whether to enable the built-in middleware which is used to apply the
+   * context.
    */
-  context?: false | "interceptor" | "middleware";
+  middleware?: boolean;
 }
