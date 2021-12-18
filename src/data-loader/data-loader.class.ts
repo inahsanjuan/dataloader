@@ -19,5 +19,18 @@ export abstract class DataLoader<Key, Value> {
       : this.base.load(keys);
   }
 
+  clear(): this;
+  clear(key: Key): this;
+  clear(key?: Key): this {
+    if (key) this.base.clear(key);
+    else this.base.clearAll();
+    return this;
+  }
+
+  prime(key: Key, value: Value | Error): this {
+    this.base.prime(key, value);
+    return this;
+  }
+
   protected abstract resolve(keys: readonly Key[]): Promise<(Value | Error)[]>;
 }
