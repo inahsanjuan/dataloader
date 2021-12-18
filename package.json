@@ -1,7 +1,7 @@
 {
   "name": "@nestjs-devkit/dataloader",
   "version": "0.0.0",
-  "description": "",
+  "description": "Dependency Injection friendly adaptation of dataloaders for NestJS.",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
@@ -16,7 +16,10 @@
     "type": "git",
     "url": "git+https://github.com/nestjs-devkit/dataloader.git"
   },
-  "author": "",
+  "author": {
+    "name": "Char2s",
+    "email": "char2s@outlook.com"
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/nestjs-devkit/dataloader/issues"
