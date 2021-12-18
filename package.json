@@ -1,6 +1,6 @@
 {
   "name": "@nestjs-devkit/dataloader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dependency Injection friendly adaptation of dataloaders for NestJS.",
   "main": "lib/index.js",
   "scripts": {
