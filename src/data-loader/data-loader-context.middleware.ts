@@ -4,7 +4,7 @@ import { DataLoaderContext } from "./data-loader-context.class";
 
 @Injectable()
 export class DataLoaderContextMiddleware implements NestMiddleware {
-  use(req: unknown, res: unknown, next: () => void) {
+  use(req: unknown, res: unknown, next: () => void): void {
     new DataLoaderContext().apply(next);
   }
 }

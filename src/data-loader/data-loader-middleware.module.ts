@@ -9,7 +9,7 @@ import { DataLoaderContextMiddleware } from "./data-loader-context.middleware";
  */
 @Module({})
 export class DataLoaderMiddlewareModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
+  configure(consumer: MiddlewareConsumer): void {
     consumer.apply(DataLoaderContextMiddleware).forRoutes("*");
   }
 }

@@ -12,16 +12,17 @@ export class DataLoaderCacheMap<Key, Value, ValuePromise extends Promise<Value>>
 {
   constructor(private loader: DataLoader<Key, Value>) {}
 
-  get(key: Key) {
+  get(key: Key): ValuePromise | undefined {
     return this.getContext().get(key);
   }
-  set(key: Key, promise: ValuePromise) {
-    return this.getContext().set(key, promise);
+  set(key: Key, promise: ValuePromise): this {
+    this.getContext().set(key, promise);
+    return this;
   }
-  delete(key: Key) {
+  delete(key: Key): boolean {
     return this.getContext().delete(key);
   }
-  clear() {
+  clear(): void {
     return this.getContext().clear();
   }
 

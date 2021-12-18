@@ -1,6 +1,6 @@
-import DataLoaderBase from 'dataloader';
+import DataLoaderBase from "dataloader";
 
-import { DataLoaderCacheMap } from './data-loader-cache-map.class';
+import { DataLoaderCacheMap } from "./data-loader-cache-map.class";
 
 export abstract class DataLoader<Key, Value> {
   private base: DataLoaderBase<Key, Value, Key>;
@@ -13,7 +13,7 @@ export abstract class DataLoader<Key, Value> {
 
   load(key: Key): Promise<Value>;
   load(keys: Key[]): Promise<(Value | Error)[]>;
-  async load(keys: Key | Key[]) {
+  async load(keys: Key | Key[]): Promise<Value | (Value | Error)[]> {
     return keys instanceof Array
       ? this.base.loadMany(keys)
       : this.base.load(keys);
