@@ -8,10 +8,17 @@ import { DataLoaderMiddlewareModule } from "./data-loader-middleware.module";
  */
 @Module({})
 export class DataLoaderModule {
-  static forRoot(): DynamicModule {
+  static forRoot(options: DataLoaderModuleOptions): DynamicModule {
     return {
       module: DataLoaderModule,
-      imports: [DataLoaderMiddlewareModule],
+      imports: options.middleware ?? true ? [DataLoaderMiddlewareModule] : [],
     };
   }
+}
+
+interface DataLoaderModuleOptions {
+  /**
+   * Whether to import {@link DataLoaderMiddlewareModule}.
+   */
+  middleware?: boolean;
 }
