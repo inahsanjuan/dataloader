@@ -23,11 +23,11 @@
   },
   "homepage": "https://github.com/nestjs-devkit/dataloader#readme",
   "peerDependencies": {
-    "dataloader": "*",
-    "@nestjs/common": "*"
+    "dataloader": "*"
   },
   "devDependencies": {
     "@nestjs/common": "^8.2.4",
+    "@nestjs/core": "^8.2.4",
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
@@ -38,6 +38,7 @@
     "jest": "^27.4.5",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
+    "rxjs": "^7.4.0",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
