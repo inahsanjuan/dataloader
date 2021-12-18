@@ -8,7 +8,7 @@ import { DataLoaderMiddlewareModule } from "./data-loader-middleware.module";
  */
 @Module({})
 export class DataLoaderModule {
-  static forRoot(options: DataLoaderModuleOptions): DynamicModule {
+  static forRoot(options: DataLoaderModuleOptions = {}): DynamicModule {
     return {
       module: DataLoaderModule,
       imports: options.middleware ?? true ? [DataLoaderMiddlewareModule] : [],
