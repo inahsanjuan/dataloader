@@ -82,7 +82,7 @@ export class BooksModule {}
 
 There is a `DataLoaderContext` used to provide clean cache maps for dataloaders in each request, which need to be applied by a middleware.
 
-By default, a built-in middleware will be used to apply the context for Express. You can disable it and implement your own one for other platforms.
+By default, a built-in middleware will be automatically applied to apply the context for Express. You can disable it and apply it on your own for other platforms.
 
 ```ts
 @Module({
@@ -90,7 +90,10 @@ By default, a built-in middleware will be used to apply the context for Express.
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(FastifyDataLoaderModule).forRoutes("(*)");
+    // Express (Default)
+    consumer.apply(DataLoaderContextMiddleware).forRoutes("*");
+    // Fastify
+    consumer.apply(DataLoaderContextMiddleware).forRoutes("(*)");
   }
 }
 ```
