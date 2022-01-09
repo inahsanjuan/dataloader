@@ -20,6 +20,12 @@
     "name": "Char2s",
     "email": "char2s@outlook.com"
   },
+  "keywords": [
+    "typescript",
+    "nestjs",
+    "graphql",
+    "dataloader"
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/nestjs-devkit/dataloader/issues"
